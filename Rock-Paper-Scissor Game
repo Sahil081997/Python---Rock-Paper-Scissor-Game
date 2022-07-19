@@ -1,0 +1,58 @@
+from random import *
+def RPS():
+    try:
+        while True:
+            random = ["Rock", "Paper", "Scissor"]
+            random_choice = choice(random)
+            print("Please enter your choice for Rock-Paper-Scissor Game \n 1.Rock \n 2.Paper \n 3.Scissor \n")
+            user_choice = int(input())
+            user = ""
+            while user_choice <= 3:
+                if user_choice == 1:
+                    user += "Rock"
+                    print(f"Your choice is Rock\n")
+                    break
+                elif user_choice == 2:
+                    user += "Paper"
+                    print(f"Your choice is Paper\n")
+                    break
+                elif user_choice == 3:
+                    user += "Scissor"
+                    print(f"Your choice is Scissor\n")
+                    break
+            else:
+                print("Enter valid choice from the selection")
+                break
+
+            print("It is now Computer's Turn\n")
+            print(f"Computer's choice is {random_choice}\n")
+            print(f"{user} vs {random_choice}")
+
+            while True:
+                if user == random_choice:
+                    print("It is a tie")
+                    break
+                elif user == "Rock" and random_choice == "Paper":
+                    print("You lost this round")
+                    break
+                elif user == "Rock" and random_choice == "Scissor":
+                    print("You Won this round")
+                    break
+                elif user == "Paper" and random_choice == "Scissor":
+                    print("You Lost this round")
+                    break
+                elif user == "Paper" and random_choice == "Rock":
+                    print("You Lost this round")
+                    break
+                elif user == "Scissor" and random_choice == "Paper":
+                    print("You Won this round")
+                    break
+                elif user == "Scissor" and random_choice == "Rock":
+                    print("You Lost this round")
+                    break
+
+            play_again = input("Play again? (y/n): ")
+            if play_again != "y":
+                break
+    except (ValueError,UnboundLocalError):
+        print("Please enter a valid selection from the list")
